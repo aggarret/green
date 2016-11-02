@@ -33,9 +33,7 @@
 		
 		//custom jquery code
 		<script type="text/javascript">
-		 	$(document).ready(function(){
 		 		@yield('script')
-		 	)};
 		</script>
 	</body>
 </html>
