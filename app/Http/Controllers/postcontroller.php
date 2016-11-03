@@ -42,6 +42,12 @@ class postcontroller extends Controller
 
         $volunteer = Auth::guard('volunteer')->user();
 
+        $this->validate($request, [
+            'title' => 'required|string|max:100',
+            'conversation' => 'required|string|max:300',
+            'users_post_id' => 'numeric'
+        ]);
+
         $post = new post();
         $post->calendar_id      = (int)$request->input("calendar_id");
         $post->title            = $request->input("title");
