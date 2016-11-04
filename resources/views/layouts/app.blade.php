@@ -32,8 +32,8 @@
 		<script src="{{ URL::to('assets/js/bootstrap.min.js') }}"></script>
 		
 		//custom jquery code
-		<script type="text/javascript">
+		
 		 		@yield('script')
-		</script>
+		
 	</body>
 </html>

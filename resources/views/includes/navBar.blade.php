@@ -69,10 +69,6 @@
                         </li>
                     @else
                     
-                        <li><a id='Organization' href="{{ url('/organization/login') }}">Organizations</a></li>
-                        <li><a id='Volunteer' href="{{ url('/volunteer/login') }}">Volunteers</a></li>
-                        <li><a id='RegOrg' href="{{ url('/organization/register') }}">Register Organizations</a></li>
-                        <li><a id='RegVol' href="{{ url('/volunteer/register') }}">Register Volunteers</a></li><br>
                     @endif
             </ul>
         </div>
