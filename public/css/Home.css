@@ -9,6 +9,9 @@
 	border-width: 0;
 	padding: 1em 1.4em;
 	background: #FF6600;
+	font-family: 'Amatic SC', cursive;
+	font-size: 2em;
+
 }
 
 /*tabs body*/
@@ -22,6 +25,7 @@ a:visited.ui-button,
 	color: #FFFAF0;
 	background: #00C832;
 	text-decoration: none;
+	font-family: 'Shrikhand', cursive;
 }
 
 /*tabs header*/

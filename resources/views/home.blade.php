@@ -43,8 +43,8 @@
                     <a class="btn btn-default page-scroll about_btn" href="#services"></a>
                     <div id="tabs">
   <ul>
-    <li><a href="#tabs-1">Organization</a></li>
-    <li><a href="#tabs-2">Volunteer</a></li>
+    <li><a href="#tabs-1">Volunteer</a></li>
+    <li><a href="#tabs-2">Organization</a></li>
     <li><a href="#tabs-3">Merchant</a></li>
   </ul>
   <div id="tabs-1">
