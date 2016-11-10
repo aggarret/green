@@ -7,6 +7,7 @@
 @section('head')
     <!-- CSS -->
     <link href="{{ URL::to('css/scrolling-nav.css') }}" rel="stylesheet" type="text/css" >
+    <link href="{{ URL::to('css/homepage/maps.css') }}" rel="stylesheet" type="text/css" >
 @endsection
 
 @section('content')
@@ -87,18 +88,22 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact-section">
+    <section id="area" class="area-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Your Area</h1>
+
+                    <!-- Jquery places map inside the div-->
+                    <div id="map"></div>
+                    
                     <a class="btn btn-default page-scroll" href="#contacttwo"></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contacttwo" class="contacttwo-section">
+    <section id="contacttwo" class="contact-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -115,6 +120,28 @@
 @section('script')
     <!-- Scrolling Nav JavaScript -->
     <script src="{{ URL::to('js/jquery.easing.min.js') }}"></script>
-    <script src="{{ URL::to('js/scrolling-nav.js') }}"></script>
+    <script src="{{ URL::to('js/homepage/scrolling-nav.js') }}"></script>
+
+        
+    <script type="text/javascript">
+        //this needs to be declared outside of any function.  Can't think of any smarter way to do it
+        var locations = [];
+        $.each({!! $calendar_events !!}, function(k,v) {
+            locations.push({lat: parseFloat(v.coord_lat), lng: parseFloat(v.coord_lng)});
+        });
+        console.log(locations);
+    </script>
+
+    <!-- Google maps clusters-->
+    <script src="{{ URL::asset('js/homepage/markerclusterer.js') }}"></script>
+
+    <!-- Google maps API-->
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('MAPS_KEY') }}&callback=initMap"
+    async defer></script>
+    
+    <!-- js to draw mapa and drop pins-->
+    <script src="{{ URL::asset('js/homepage/maps.js') }}"></script>
+    async defer></script>
+    
 @endsection
                     

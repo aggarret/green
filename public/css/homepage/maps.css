@@ -1,0 +1,17 @@
+<style>
+	html, body {
+	    height: 100%;
+	    margin: 0;
+	    padding: 0;
+  	}
+
+  	#main {
+	    margin-top: 50px;
+	  }
+
+	#map {
+	    height: 500px;
+	    width: 90%;
+	  }
+
+</style>

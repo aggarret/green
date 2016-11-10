@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('head')
+    <link href="{{ URL::to('/css/bootstrap-datetimepicker.css') }}" rel="stylesheet" type="text/css" >
+@endsection
 
 @section('content')
     <div class="page-header">
@@ -42,5 +45,6 @@
 @endsection
 
 @section('script')
-    <script>jQuery('#datetimepicker').datetimepicker();</script>
+    <script src="{{ URL::to('js/bootstrap-datetimepicker.js') }}"></script>
+    <script src="{{ URL::to('js/javas.js') }}"></script>
 @endsection

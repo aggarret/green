@@ -64,27 +64,40 @@ class CalendarEventController extends Controller
         $org = Auth::guard('organization')->user();
 
         $this->validate($request, [
-            'title' => 'required|string|max:120',
-            'description' => 'string|max:500',
+            'title' => 'required|string|max:127',
+            'description' => 'string|max:511',
             'start' => 'required|date',
             'end' => 'required|date',
             'max_volunteer' => 'required|integer',
+            'address_street' => 'required|string|max:127',
+            'address_city' => 'required|string|max:63',
+            'address_state' => 'required|string|max:31',
+            'address_zip' => 'numeric|max:99999',
+            'lat' => 'numeric',
+            'lng' => 'numeric'
         ]);
 
         $calendar_event = new CalendarEvent();
 
-        $calendar_event->title            = $request->input("title");
-        $calendar_event->description      = $request->input("description");
-        $calendar_event->start            = $request->input("start");
-        $calendar_event->end              = $request->input("end");
-        $calendar_event->max_volunteer    = $request->input("max_volunteer");
+        $calendar_event->title              = $request->input("title");
+        $calendar_event->description        = $request->input("description");
+        $calendar_event->start              = $request->input("start");
+        $calendar_event->end                = $request->input("end");
+        $calendar_event->max_volunteer      = $request->input("max_volunteer");
+        $calendar_event->address_street     = $request->input("address_street");
+        $calendar_event->address_city       = $request->input("address_city"); 
+        $calendar_event->address_state      = $request->input("address_state"); 
+        $calendar_event->address_zip        = $request->input("address_zip");
+        $calendar_event->coord_lat          = $request->input("lat");
+        $calendar_event->coord_lng          = $request->input("lng"); 
 
         
 
         $org->calendar()->save($calendar_event);
 
         Session::flash('success', 'Successfully created an event!');
-        return redirect()->route('calendar_events.index')->with('message', 'Item created successfully.');
+        return response()->json(['responseText' => 'Success!'], 200);
+        //return redirect()->route('calendar_events.index')->with('message', 'Item created successfully.');
     }
 
     /**
