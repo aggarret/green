@@ -37,14 +37,14 @@ function locate(address_to_find)
             var lat = results[0].geometry.location.lat();
             var lng = results[0].geometry.location.lng();
 
-            console.log(lat);
-            console.log(lng);
+            var city = results[0].address_components[3].long_name;
+            var county = results[0].address_components[4].long_name;
 
             //Push lat&lng to the object array
             s_data.push({name: 'lat', value: lat});
             s_data.push({name: 'lng', value: lng});
-
-            console.log(s_data);
+            s_data.push({name: 'google_city', value: city});
+            s_data.push({name: 'google_county', value: county});
 
             callAjax();
         }

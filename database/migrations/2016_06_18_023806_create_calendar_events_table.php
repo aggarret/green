@@ -32,6 +32,9 @@ class CreateCalendarEventsTable extends Migration
             $table->decimal('coord_lat', 10, 7);
             $table->decimal('coord_lng', 10, 7);
 
+            $table->text('google_city');
+            $table->text('google_county');
+
             $table->integer('organization_id')->unsigned()->index();
             $table->foreign('organization_id')->references('id')->on('organizations')->onDelete('cascade');
             $table->timestamps();

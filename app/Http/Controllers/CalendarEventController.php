@@ -72,9 +72,7 @@ class CalendarEventController extends Controller
             'address_street' => 'required|string|max:127',
             'address_city' => 'required|string|max:63',
             'address_state' => 'required|string|max:31',
-            'address_zip' => 'numeric|max:99999',
-            'lat' => 'numeric',
-            'lng' => 'numeric'
+            'address_zip' => 'numeric|max:99999'
         ]);
 
         $calendar_event = new CalendarEvent();
@@ -89,7 +87,9 @@ class CalendarEventController extends Controller
         $calendar_event->address_state      = $request->input("address_state"); 
         $calendar_event->address_zip        = $request->input("address_zip");
         $calendar_event->coord_lat          = $request->input("lat");
-        $calendar_event->coord_lng          = $request->input("lng"); 
+        $calendar_event->coord_lng          = $request->input("lng");
+        $calendar_event->google_city        = $request->input("google_city");
+        $calendar_event->google_county      = $request->input("google_county");
 
         
 
