@@ -36,8 +36,22 @@ class HomeController extends Controller
     public function index()
     {
         $calendar_events = CalendarEvent::where('start', '>', \Carbon\Carbon::now())->get()->toJson();
+        
+        //need to grab the org names in the controller and pass into blade.  too hard to strip once inside blade
+        $calendars = CalendarEvent::where('start', '>', \Carbon\Carbon::now())->get();
+        $orgs = [];
+        foreach ($calendars as $calendar)
+        {
+           $orgs[] = utf8_encode($calendar->organization->organization);
+        }
+        Log::info($orgs);
+        $orgs = json_encode($orgs);
+
+        
         return view('home', [
-            'calendar_events' => $calendar_events]);
+            'calendar_events' => $calendar_events,
+            'orgs' => $orgs
+            ]);
     }
 
     public function test()

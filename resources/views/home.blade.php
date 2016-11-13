@@ -126,18 +126,32 @@
     <script type="text/javascript">
         //this needs to be declared outside of any function.  Can't think of any smarter way to do it
         var locations = [];
+        var titles = [];
+        var orgs = [];
+
+        //strip out of the coords and title of the events
         $.each({!! $calendar_events !!}, function(k,v) {
             locations.push({lat: parseFloat(v.coord_lat), lng: parseFloat(v.coord_lng)});
+            titles.push(v.title);
         });
+
+        //strip out organization name.  had to do this way since org name is a manyToMany of event
+        $.each({!! $orgs !!}, function(k,v) {
+            orgs.push(v);
+        });
+
+        console.log('test');
         console.log(locations);
+        console.log(titles);
+        console.log(orgs);
     </script>
 
     <!-- Google maps clusters-->
     <script src="{{ URL::asset('js/homepage/markerclusterer.js') }}"></script>
 
     <!-- Google maps API-->
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('MAPS_KEY') }}&callback=initMap"
-    async defer></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key={{ env('MAPS_KEY') }}&callback=initMap"></script>
     
     <!-- js to draw mapa and drop pins-->
     <script src="{{ URL::asset('js/homepage/maps.js') }}"></script>
