@@ -7,13 +7,9 @@
 @section('head')
     <!-- CSS -->
     <link href="{{ URL::to('css/scrolling-nav.css') }}" rel="stylesheet" type="text/css" >
-<<<<<<< HEAD
     <link href="{{ URL::to('css/homepage/maps.css') }}" rel="stylesheet" type="text/css" >
-=======
     <link href="{{ URL::to('css/jquery-ui.css') }}" rel="stylesheet" type="text/css" >
     <link href="{{ URL::to('css/Home.css') }}" rel="stylesheet" type="text/css" >
-    
->>>>>>> 793a6d44ab8da709da2ff51b2014c6d7be53360c
 @endsection
 
 @section('content')
@@ -135,7 +131,6 @@
     jquery-ui.js
     <script src="{{ URL::to('js/jquery-ui.js') }}"></script>
     <script src="{{ URL::to('js/jquery.easing.min.js') }}"></script>
-<<<<<<< HEAD
     <script src="{{ URL::to('js/homepage/scrolling-nav.js') }}"></script>
 
         
@@ -155,33 +150,24 @@
         $.each({!! $orgs !!}, function(k,v) {
             orgs.push(v);
         });
-
-        console.log('test');
-        console.log(locations);
-        console.log(titles);
-        console.log(orgs);
     </script>
 
     <!-- Google maps clusters-->
     <script src="{{ URL::asset('js/homepage/markerclusterer.js') }}"></script>
 
     <!-- Google maps API-->
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key={{ env('MAPS_KEY') }}&callback=initMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('MAPS_KEY') }}&callback=initMap" async defer></script>
     
     <!-- js to draw mapa and drop pins-->
     <script src="{{ URL::asset('js/homepage/maps.js') }}"></script>
-    async defer></script>
     
-=======
-    <script src="{{ URL::to('js/scrolling-nav.js') }}"></script>
-     <script>
-  $( function() {
-    $( "#tabs" ).tabs({
-      collapsible: true
-    });
-  } );
-  </script>
->>>>>>> 793a6d44ab8da709da2ff51b2014c6d7be53360c
+    <script>
+        $( function() {
+            $( "#tabs" ).tabs({
+                collapsible: true
+            });
+        });
+    </script>
+
 @endsection
                     
