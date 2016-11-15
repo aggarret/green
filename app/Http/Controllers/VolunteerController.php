@@ -38,18 +38,12 @@ class VolunteerController extends Controller
     $user = Auth::guard('volunteer')->user();
     $calendar_events = CalendarEvent::all();
 
-        foreach ($calendar_events as &$calendar_event) {
-        $datetime1 = $calendar_event->start;
-        $datetime2 = $calendar_event->end;
-        $interval = $datetime2->diff($datetime1);
-        }
-        $hours = (array) $interval;  
-        $total_hours = array_sum($hours);
+        
         $userInterests = Auth::guard('volunteer')->user()->interests()->get();
         return view('/volunteer/dashboard', [
             'user' => $user,
             'userInterests' => $userInterests,
-            'total_hours' => $total_hours
+            
         ]);
     }
 

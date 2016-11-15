@@ -36,6 +36,40 @@
                 <li>
                     <a class="page-scroll" href="#" style="color:orange">Sign-In/Sign-up</a>
                 </li>
+
+                @if(Auth::guard('volunteer')->user())
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::guard('volunteer')->user()->firstName }} <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu list-group">
+                                <li><a href="{{ route('volunteer.dashboard') }}">Dashboard</a></li>
+                                <li><a href="{{ route('volunteer.account') }}">Profile</a></li>
+                                <li><a href="{{ route('Calender.index') }}">My Events</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ route('volunteer.logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            </ul>
+
+
+                        </li>
+                    @elseif(Auth::guard('organization')->user())
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::guard('organization')->user()->organization }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu list-group">
+                                <li><a href="{{ route('organization.dashboard') }}">Dashboard</a></li>
+                                <li><a href="{{ route('organization.account') }}">Profile</a></li>
+                                <li><a href="{{ url('/calendar_events/create') }}">Add an Event</a></li>
+                                <li><a href="{{ route('calendar_events.index') }}">My Events</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ route('organization.logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            </ul>
+                        </li>
+                    @else
+                    
+                    @endif
             </ul>
         </div>
         <!-- /.navbar-collapse -->

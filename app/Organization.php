@@ -36,4 +36,8 @@ protected $table ='organizations';
     {
         return $this->morphMany('App\post', 'users_post');
     }
+     public function Photo()
+    {
+        return $this->morphMany('App\Photo', 'user');
+    }
 }

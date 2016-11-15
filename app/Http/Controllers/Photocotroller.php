@@ -1,14 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Organization;
-use App\Volunteer;
-use App\post;
-use Illuminate\Support\Facades\Auth;
 
-class postcontroller extends Controller
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+
+class Photocotroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,32 +36,26 @@ class postcontroller extends Controller
      */
     public function store(Request $request)
     {
-        $organization = Auth::guard('organization')->user();
-
         $volunteer = Auth::guard('volunteer')->user();
 
-        $this->validate($request, [
-            'title' => 'required|string|max:100',
-            'conversation' => 'required|string|max:300',
-            'users_post_id' => 'numeric'
-        ]);
+        $organization = Auth::guard('organization')->user();
 
-        $post = new post();
-        $post->calendar_id      = (int)$request->input("calendar_id");
-        $post->title            = $request->input("title");
-        $post->conversation     = $request->input("conversation");
-        if (Auth::guard('organization')->user()){
-            $post->users_post_type = "App\Organization";
-            $post->users_post_id = $organization->id;
-            $post->save();
-      } elseif (Auth::guard('volunteer')->user()){
-            $post->users_post_type = "App\Volunteer";
-            $post->users_post_id = $volunteer->id;
-            $post->save();
-        }
+        $photo = new Photo;
 
- return back();
+        $file = $request->file('file');
+        
 
+            if(Auth::guard('volunteer')->user()){
+               $filename = time() . '.' . $file->getClientOriginalExtension();
+               $location = public_path('volunteers\photos' . $filename);
+               Image::make($file)->resize(80, 400)->save($location);
+               $photo->image = $filename;
+               $volunteer->Photo()->save($photo);
+               return back();
+
+
+            
+            }
     }
 
     /**
@@ -108,9 +100,6 @@ class postcontroller extends Controller
      */
     public function destroy($id)
     {
-        $po = post::findOrFail($id);
-        $po->delete();
-
-        return back()->with('message', 'Item deleted successfully.');
+        //
     }
 }

@@ -155,9 +155,11 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
  /*
          * Third party Service Providers...
          */
+     Intervention\Image\ImageServiceProvider::class,
      MaddHatter\LaravelFullcalendar\ServiceProvider::class,
 
     ],
@@ -210,6 +212,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Calendar'  => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
+        'Image' => Intervention\Image\Facades\Image::class
 
     ],
 

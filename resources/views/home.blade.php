@@ -7,7 +7,13 @@
 @section('head')
     <!-- CSS -->
     <link href="{{ URL::to('css/scrolling-nav.css') }}" rel="stylesheet" type="text/css" >
+<<<<<<< HEAD
     <link href="{{ URL::to('css/homepage/maps.css') }}" rel="stylesheet" type="text/css" >
+=======
+    <link href="{{ URL::to('css/jquery-ui.css') }}" rel="stylesheet" type="text/css" >
+    <link href="{{ URL::to('css/Home.css') }}" rel="stylesheet" type="text/css" >
+    
+>>>>>>> 793a6d44ab8da709da2ff51b2014c6d7be53360c
 @endsection
 
 @section('content')
@@ -39,37 +45,44 @@
                     <h1>What We're All About</h1>
                     <h4>We're a platform that connects organizations, voluneteers and local buisnesses to fulfill worthy causes within the community.</h4>
                     <a class="btn btn-default page-scroll about_btn" href="#services"></a>
-                    <div class="present">
-                         <div>
-                             <ul>
-                                <h5>Volunteers</h5>
-                                 <li>Reason 1</li>
-                                 <li>Reason 2</li>
-                                 <li>Reason 3</li>
-                                 <li>Click Here to Learn More</li>
-                             </ul>
-                         </div>
-                         <span style="margin-left: 15em;"></span>
-                         <div style="margin-left: 15em;">       
-                             <ul>
-                                <h5>Organizations</h5>
-                                 <li>Reason 1</li>
-                                 <li>Reason 2</li>
-                                 <li>Reason 3</li>
-                                 <li>Click Here to Learn More</li>
-                             </ul>
-                         </div>
-                         <span style="margin-left: 13em;"></span>
-                         <div class="present_bus" style="margin-left: 15em;">
-                            <ul>
-                                <h5>Businesses</h5>
-                                 <li>Reason 1</li>
-                                 <li>Reason 2</li>
-                                 <li>Reason 3</li>
-                                 <li>Click Here to Learn More</li>
-                             </ul>
-                         </div>
-                    </div>
+                    <div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">Volunteer</a></li>
+    <li><a href="#tabs-2">Organization</a></li>
+    <li><a href="#tabs-3">Merchant</a></li>
+  </ul>
+  <div id="tabs-1">
+    <p><strong>Volunteers</strong></p>
+    <ul style="list-style: none;">
+       
+        <li>Strengthen local community by volunteering at local Non-Profit Organizations.</li>
+        <li>Strengthen own personal network by hanging out at the planned “after party” with fellow volunteers</li>
+        <li>Informed of  interested Non-Profits</li>
+        <li><a id='Volunteer' href="{{ url('/volunteer/login') }}">Volunteers Login</a></li>
+        <li><a id='RegVol' href="{{ url('/volunteer/register') }}">Register Volunteers</a></li><br>
+    </ul>
+  </div>
+  <div id="tabs-2">
+    <p><strong>Organization</strong></p>
+    <ul style="list-style: none;">
+       
+        <li>Direct access to pool of Carrot Path volunteers</li>
+        <li>We say “Thank you for volunteering with us” on behalf of the Non-Profits</li>
+        <li>Stay in touch with community</li>
+        <li><a id='Organization' href="{{ url('/organization/login') }}">Organizations Login</a></li>
+        <li><a id='RegOrg' href="{{ url('/organization/register') }}">Register Organizations</a></li>
+    </ul>
+  </div>
+  <div id="tabs-3">
+    <p><strong>Local/Global Businessn</strong></p>
+    <ul style="list-style: none;">
+        <li>More Customers</li>
+        <li>Stay in touch with community</li>
+        <li>Market products/services to new audience</li>
+        <li>Click Here to Learn More</li>
+    </ul>
+  </div>
+</div>
                 </div>
             </div>
         </div>
@@ -119,7 +132,10 @@
 
 @section('script')
     <!-- Scrolling Nav JavaScript -->
+    jquery-ui.js
+    <script src="{{ URL::to('js/jquery-ui.js') }}"></script>
     <script src="{{ URL::to('js/jquery.easing.min.js') }}"></script>
+<<<<<<< HEAD
     <script src="{{ URL::to('js/homepage/scrolling-nav.js') }}"></script>
 
         
@@ -157,5 +173,15 @@
     <script src="{{ URL::asset('js/homepage/maps.js') }}"></script>
     async defer></script>
     
+=======
+    <script src="{{ URL::to('js/scrolling-nav.js') }}"></script>
+     <script>
+  $( function() {
+    $( "#tabs" ).tabs({
+      collapsible: true
+    });
+  } );
+  </script>
+>>>>>>> 793a6d44ab8da709da2ff51b2014c6d7be53360c
 @endsection
                     

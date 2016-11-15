@@ -1,0 +1,37 @@
+
+/* Tab Pannels 
+
+*/
+
+/*tabs*/
+.ui-tabs .ui-tabs-panel {
+	display: block;
+	border-width: 0;
+	padding: 1em 1.4em;
+	background: #FF6600;
+	font-family: 'Amatic SC', cursive;
+	font-size: 2em;
+
+}
+
+/*tabs body*/
+.ui-state-default a,
+.ui-state-default a:link,
+.ui-state-default a:visited,
+a.ui-button,
+a:link.ui-button,
+a:visited.ui-button,
+.ui-button {
+	color: #FFFAF0;
+	background: #00C832;
+	text-decoration: none;
+	font-family: 'Shrikhand', cursive;
+}
+
+/*tabs header*/
+.ui-widget-header {
+	border: 1px solid #dddddd;
+	background: blue;
+	color: #333333;
+	font-weight: bold;
+}

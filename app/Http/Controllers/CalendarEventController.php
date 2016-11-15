@@ -64,9 +64,10 @@ class CalendarEventController extends Controller
         $org = Auth::guard('organization')->user();
 
         $this->validate($request, [
+
             'title' => 'required|string|max:127',
             'description' => 'string|max:511',
-            'start' => 'required|date',
+            'start' => 'required|date|future_start',
             'end' => 'required|date',
             'max_volunteer' => 'required|integer',
             'address_street' => 'required|string|max:127',
@@ -108,22 +109,13 @@ class CalendarEventController extends Controller
      */
     public function show($id)
     {
-        $calendar_event = CalendarEvent::findOrFail($id);
-        $post = post::all();
-        $Org = organization::all();
-        $Vol = $calendar_event->volunteers;
-
-        return view('calendar_events.show', compact(['calendar_event', 'post','Org','Vol']));
-    }
-
-    public function guestshow($id)
-    {
-        $calendar_event = CalendarEvent::findOrFail($id);
+       $calendar_event = CalendarEvent::findOrFail($id);
         $organization = Auth::guard('organization')->user();
         $volunteer = Auth::guard('volunteer')->user();
         $post = $post = post::all();
         $Org = organization::all();
         $Vol = $calendar_event->volunteers;
+         $exists = DB::table('calendar_event_volunteer');
 
 
 
@@ -136,7 +128,32 @@ class CalendarEventController extends Controller
 
             return view('calendar_events.show', compact(['calendar_event', 'exists', 'post','Org','Vol', 'volunteer', 'organization']));
         }
-        else return view('calendar_events.show',  compact(['calendar_event', 'post','Org','Vol','volunteer', 'organization']));
+        else return view('calendar_events.show',  compact(['calendar_event', 'exists', 'post','Org','Vol','volunteer', 'organization']));
+    }
+    
+
+    public function guestshow($id)
+    {
+        $calendar_event = CalendarEvent::findOrFail($id);
+        $organization = Auth::guard('organization')->user();
+        $volunteer = Auth::guard('volunteer')->user();
+        $post = $post = post::all();
+        $Org = organization::all();
+        $Vol = $calendar_event->volunteers;
+         $exists = DB::table('calendar_event_volunteer');
+
+
+
+        if ($volunteer)
+        {
+            $exists = DB::table('calendar_event_volunteer')
+            ->where('calendar_event_id', $id)
+            ->where('volunteer_id', $volunteer->id)
+            ->count() > 0;
+
+            return view('calendar_events.show', compact(['calendar_event', 'exists', 'post','Org','Vol', 'volunteer', 'organization']));
+        }
+        else return view('calendar_events.show',  compact(['calendar_event', 'exists', 'post','Org','Vol','volunteer', 'organization']));
     }
     /**
      * Show the form for editing the specified resource.
@@ -163,7 +180,7 @@ class CalendarEventController extends Controller
         $this->validate($request, [
             'title' => 'required|alpha_num|max:120',
             'description' => 'alpha_num|max:500',
-            'start' => 'required|date',
+            'start' => 'required|date|future_start',
             'end' => 'required|date',
             'max_volunteer' => 'required|integer',
         ]);
