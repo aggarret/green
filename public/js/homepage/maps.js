@@ -37,48 +37,40 @@ function initialize(position)
   	dropMarkers(markers);
 }
 
-        function dropMarkers(markers) {
-        	//locations are passed in from php json.  variable is defined/populated prior to this .js file.
-        	let test = new Promise(function(resolve, reject) {
-            markers = locations.map(addMarkerWithTimeout);
-            
-            resolve(markers);
-          });
+function dropMarkers(markers) {
+    //locations are passed in from php json.  variable is defined/populated prior to this .js file.
+    Promise.all(locations.map(addMarkerWithTimeout))
+    .then(function(value){
+        console.log('markers before clustering');
+        console.log(value);
+        clustering(value);
+    });
+}
 
-          test.then(function(value){
-            console.log('markers before clustering');
-
-            //console dump is showing that markers are being populated correctly.  I believe the problem is with the .push method above
-            console.log(value);
-            clustering(value);
-          });
-        }
-
-
-        function addMarkerWithTimeout(position, timeout) {
-          let prom = new Promise(function(resolve, reject) {
-            window.setTimeout(function(){
-              resolve(new google.maps.Marker({
-                      position: position,
-                      map: map,
-                      animation: google.maps.Animation.DROP}));
-            }, timeout*300);
-          });
-
-          prom.then(function(value) {
-            console.log('iteration: [' + timeout + '] value: [' + value +']');
-            return value;
-          });
-        }
+//return promise of marker object.  use promise because setTimeout doesn't allow a return
+function addMarkerWithTimeout(position, timeout) {
+    return new Promise(function(resolve, reject) {
+        window.setTimeout(function(){
+            resolve(new google.maps.Marker({
+                position: position,
+                map: map,
+                animation: google.maps.Animation.DROP}));
+        }, timeout*300);
+    })
+    .then(function(value) {
+        console.log('iteration: [' + timeout + '] value: [' + value +']');
+        return value;
+    });
+}
 
 
-        //add a marker clusterer to manage the markers.
-        function clustering(markers) {
-        	console.log('markers after callback');
-        	console.log(markers);
+//add a marker clusterer to manage the markers.
+function clustering(markers) {
+	console.log('markers after callback');
+	console.log(markers);
 
-        	markerCluster = new MarkerClusterer(map, markers, {
-        	imagePath: 'images/m'});
-        }
+	markerCluster = new MarkerClusterer(map, markers, {
+	imagePath: 'images/m'});
+}
 
 
