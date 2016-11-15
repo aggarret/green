@@ -34,12 +34,9 @@ function initialize(position)
 		zoom: 15
 	};
 
-    console.log('1');
-
 	//find the id="map" and place a map within it.  pass in any map options
 	map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-    console.log('2');
 	//init info window.  not used for anything yet
   	//var infoWindow = new google.maps.InfoWindow({map: map});
   	//infoWindow.setPosition(currentLocation);
@@ -47,7 +44,6 @@ function initialize(position)
 
   	//function to drop markers.  clustering is the callback function
   	dropMarkers(markers);
-    console.log('3');
 }
 
 function dropMarkers(markers) {
