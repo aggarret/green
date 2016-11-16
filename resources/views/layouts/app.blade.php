@@ -22,7 +22,7 @@
 	<body id="app-layout">
 		<div class="main-body">
 			@include('includes.messages')
-
+			@include('includes.navBar')
 		    @yield('content')
 	    </div>
 
@@ -31,14 +31,9 @@
 		<script src="{{ URL::to('assets/jquery-3.1.1.min.js') }}"></script>
 		<script src="{{ URL::to('assets/js/bootstrap.min.js') }}"></script>
 		
-<<<<<<< HEAD
+
 		<!-- custom jquery code-->
 		@yield('script')
-=======
-		//custom jquery code
 		
-		 		@yield('script')
-		
->>>>>>> 793a6d44ab8da709da2ff51b2014c6d7be53360c
 	</body>
 </html>
