@@ -7,6 +7,7 @@
 @section('head')
     <!-- CSS -->
     <link href="{{ URL::to('css/scrolling-nav.css') }}" rel="stylesheet" type="text/css" >
+<<<<<<< HEAD
 
     <link href="{{ URL::to('css/homepage/maps.css') }}" rel="stylesheet" type="text/css" >
 
@@ -14,6 +15,11 @@
     <link href="{{ URL::to('css/Home.css') }}" rel="stylesheet" type="text/css" >
     
 
+=======
+    <link href="{{ URL::to('css/homepage/maps.css') }}" rel="stylesheet" type="text/css" >
+    <link href="{{ URL::to('css/jquery-ui.css') }}" rel="stylesheet" type="text/css" >
+    <link href="{{ URL::to('css/Home.css') }}" rel="stylesheet" type="text/css" >
+>>>>>>> 0958e66324d2c8a660b7ff5f7b69d25be6fc984f
 @endsection
 
 @section('content')
@@ -135,7 +141,10 @@
     
     <script src="{{ URL::to('js/jquery-ui.js') }}"></script>
     <script src="{{ URL::to('js/jquery.easing.min.js') }}"></script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0958e66324d2c8a660b7ff5f7b69d25be6fc984f
     <script src="{{ URL::to('js/homepage/scrolling-nav.js') }}"></script>
 
         
@@ -155,23 +164,23 @@
         $.each({!! $orgs !!}, function(k,v) {
             orgs.push(v);
         });
-
-        console.log('test');
-        console.log(locations);
-        console.log(titles);
-        console.log(orgs);
     </script>
 
     <!-- Google maps clusters-->
     <script src="{{ URL::asset('js/homepage/markerclusterer.js') }}"></script>
 
     <!-- Google maps API-->
+
     <script 
     src="https://maps.googleapis.com/maps/api/js?key={{ env('MAPS_KEY') }}&callback=initMap" async defer></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('MAPS_KEY') }}&callback=initMap" async defer></script>
+
     
     <!-- js to draw mapa and drop pins-->
     <script src="{{ URL::asset('js/homepage/maps.js') }}"></script>
     
+
 
     <script src="{{ URL::to('js/scrolling-nav.js') }}"></script>
      <script>
@@ -181,6 +190,15 @@
     });
   } );
   </script>
+
+    <script>
+        $( function() {
+            $( "#tabs" ).tabs({
+                collapsible: true
+            });
+        });
+    </script>
+
 
 @endsection
                     
