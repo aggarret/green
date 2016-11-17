@@ -1,6 +1,5 @@
 //declare map outside of functions incase you want to use it somewhere else.
 var map;
-var markers;
 var markerCluster;
 
 function initMap()
@@ -41,32 +40,28 @@ function initialize(position)
   	//var infoWindow = new google.maps.InfoWindow({map: map});
   	//infoWindow.setPosition(currentLocation);
 
-
-  	//function to drop markers.  clustering is the callback function
-  	dropMarkers(markers);
+  	//function to drop markers
+  	dropMarkers(locations);
 }
 
-function dropMarkers(markers) {
-    //locations are passed in from php json.  variable is defined/populated prior to this .js file.
-    Promise.all(locations.map(addMarkerWithTimeout))
-    .then(function(value){
-        clustering(value);
-        return value;
-    });
+function dropMarkers(pos) {
+    /*  locations are passed in from php json.  variable is defined/populated prior to this .js file.
+        promise chain addMarkerWithTimeout followed by clustering.
+    */
+    return Promise.all(pos.map(addMarkerWithTimeout))
+    .then(clustering);
 }
 
 //return promise of marker object.  use promise because setTimeout doesn't allow a return
 function addMarkerWithTimeout(position, timeout) {
-    return new Promise(function(resolve, reject) {
-        window.setTimeout(function(){
+    return new Promise(resolve => {
+        window.setTimeout(() => {
             resolve(new google.maps.Marker({
                 position: position,
                 map: map,
                 animation: google.maps.Animation.DROP}));
         }, timeout*300);
-    }).then(function(value) {
-        return value;
-    });
+    }).then(value => value);
 }
 
 
@@ -74,6 +69,5 @@ function addMarkerWithTimeout(position, timeout) {
 function clustering(markers) {
 	markerCluster = new MarkerClusterer(map, markers, {
 	imagePath: 'images/m'});
+    return markers;
 }
-
-
