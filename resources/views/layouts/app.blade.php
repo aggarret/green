@@ -30,15 +30,8 @@
 	    <!-- jquery 3.1.1-->
 		<script src="{{ URL::to('assets/jquery-3.1.1.min.js') }}"></script>
 		<script src="{{ URL::to('assets/js/bootstrap.min.js') }}"></script>
-		
-
 
 		<!-- custom jquery code-->
 		@yield('script')
-		
-
-		<!-- custom jquery code-->
-		 @yield('script')
-
 	</body>
 </html>

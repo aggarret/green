@@ -15,6 +15,7 @@
 @section('content')
     <!-- Intro Section -->
     <section id="intro" class="intro-section">
+    <h1>test</h1>
         <div class="intro_container">
             <div class="intro_row">
                 <div class="intro_col-lg-12">
@@ -104,7 +105,10 @@
                     <h1>Your Area</h1>
 
                     <!-- Jquery places map inside the div-->
-                    <div id="map"></div>
+                    <div class="mapParent">
+                        <div id="map"></div>
+                        <div id="progressBar"></div>
+                    </div>
                     
                     <a class="btn btn-default page-scroll" href="#contacttwo"></a>
                 </div>
@@ -135,10 +139,16 @@
 
         
     <script type="text/javascript">
+        var progressBar = $( "#progressBar" );
+        progressBar.progressbar({
+            value: false
+        });
+
         //this needs to be declared outside of any function.  Can't think of any smarter way to do it
         var locations = [];
         var titles = [];
         var orgs = [];
+
 
         //strip out of the coords and title of the events
         $.each({!! $calendar_events !!}, function(k,v) {
@@ -156,10 +166,6 @@
     <script src="{{ URL::asset('js/homepage/markerclusterer.js') }}"></script>
 
     <!-- Google maps API-->
-
-    <script 
-    src="https://maps.googleapis.com/maps/api/js?key={{ env('MAPS_KEY') }}&callback=initMap" async defer></script>
-
     <script src="https://maps.googleapis.com/maps/api/js?key={{ env('MAPS_KEY') }}&callback=initMap" async defer></script>
 
     

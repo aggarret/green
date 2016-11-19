@@ -24,14 +24,16 @@ function initMap()
 function initialize(position)
 {
 	//create var to use later.  populate with info from navigator
-	//var currentLocation = {lat: position.coords.latitude, lng: position.coords.longitude};
-    var currentLocation = {lat: 37.832685, lng: -122.273709};
+	var currentLocation = {lat: position.coords.latitude, lng: position.coords.longitude};
+    //var currentLocation = {lat: 37.832685, lng: -122.273709};
 	
     //set any map options here
 	var mapOptions = {
 		center: currentLocation,
 		zoom: 15
 	};
+
+    progressBar.progressbar( "destroy" );
 
 	//find the id="map" and place a map within it.  pass in any map options
 	map = new google.maps.Map(document.getElementById('map'), mapOptions);

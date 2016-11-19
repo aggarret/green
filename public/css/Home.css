@@ -35,3 +35,17 @@ a:visited.ui-button,
 	color: #333333;
 	font-weight: bold;
 }
+
+.mapParent {
+	postion: absolute;
+
+	left: 50%;
+	background-color: pink;
+}
+
+#map#progressBar {
+	position: relative;
+	display: inline;
+	margin: 0 auto;
+	
+}	
