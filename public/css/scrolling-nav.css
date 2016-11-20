@@ -31,6 +31,56 @@ section {
 
 /*   ------- Begin: Nav Bar -------*/
 
+    /*<------- Nav Bar: Sign in/ Sign Up drop Down menus BEGIN----------------->*/
+.dropbtn {
+    
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.sign_in {
+    position: relative;
+    top: 14px;
+    display: inline-block;
+}
+
+.sign_up {
+    position: relative;
+    top: 14px;
+    left: 16px;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.sign_in:hover .dropdown-content {
+    display: block;
+}
+
+.sign_up:hover .dropdown-content {
+    display: block;
+}
+
+                    /*<-------Nav Bar: Sign in/ Sign Up drop Down menus END----------------->*/
+
 .page-scroll {
     font-family: 'Poppins', sans-serif;
 }
@@ -56,6 +106,9 @@ section {
     border-color: none;
     border: 0px;
 }
+
+
+
 
 /*   ------- End: Nav Bar -------*/
 
@@ -90,19 +143,41 @@ section {
 
 /* Begin: First Pannel -- Welcome Section Video BG/Button/Company Name/ */
 
+
+
 .intro-section {
-    height: 100%;
+    height: 100%
     padding-top: 150px;
     text-align: center;
     color: white;
     background: ;
-    z-index: 1;
+    z-index: ;
+
+}
+
+.intro-section video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    
+}
+
+.intro-section h4 {
+    margin-bottom: 8em; 
+
 }
 
 .intro-section h1 {
     font-size: 8em;
     font-family: 'Shrikhand', cursive;
     text-decoration: underline;
+
 }
 
 .intro-section h3, h4 {
@@ -112,6 +187,34 @@ section {
 
 .intro_col-lg-12 {
     width: 100%;
+    background-color: ;
+    margin-top: 4em;
+}
+
+.intro_col-lg-12 a {
+    color: white; 
+    text-decoration: underline;
+}
+
+#vol-welcome:hover a {
+    color: #FD8332; 
+    text-decoration: underline;
+    opacity:0.7;
+    transition: 1s ease;
+}
+
+#org-welcome:hover a {
+    color: #FD8332; 
+    text-decoration: underline;
+    opacity:0.7;
+    transition: 1s ease;
+}
+
+#bus-welcome:hover a {
+    color: #FD8332; 
+    text-decoration: underline;
+    opacity:0.7;
+    transition: 1s ease;
 }
 
 
@@ -124,93 +227,248 @@ section {
     width: 100%;
 }
 
-.intro-section {
-    width: 100%;
-}
-.intro-section video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -1;
-    
-
-}
 
 .intro_col-lg-12 h1 {
     margin-top: .2px;
 }
+                               /*<----Slide in Animation ------->*/
+/*div.intro-section  {
+  width:100%;
+  overflow:hidden;
+}
+div.intro-section  h1 {
+  animation: 10s slide-right;
+}
+
+@keyframes intro-section {
+  from {
+    margin-left: -100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}*/
 
 /* End: First Pannel -- Welcome Section Video BG/Button/Company Name/ */
 
 /*   Begin: Second Pannel --- What We're All About Title/Explaination/ Vol-Org-Bus 3 Sections Ptich*/
 
+
+
 .about-section {
-    height: 1000px;
-    width: 100%;
+    /*margin-top: 7em;*/
+    /*width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: blue;
+    position: relative;
+    top: 12em;
+    opacity: .6;*/
+    /*margin-top: 25em;*/
+    height: 100%;
     padding-top: 150px;
     text-align: center;
-    /*background: #eee;*/
-    background: blue;
+    background-color: green;
+    opacity: ;
+    margin-top: -2em;
 }
+
 
 .about_container h1 {
     position: relative;
-    margin-top: 0;
-    font-size: 8em;
+    top: -1.5em; 
+    margin-top: 1.5em;
+    font-size: 7em;
     font-family: 'Shrikhand', cursive;
 }
 
+.about_container h4 {
+    font-size: 3em;
+
+}
+
 .about_col-lg-12 {
+    width: 100%;
+    background-color: ; 
+    position: relative;
+    top: 75px;
+    
+}
+
+.about_col-lg-12 h1, h4{
+
+    text-shadow: 4px 4px 4px;
+}
+
+.about_col-lg-12 h1 {
+    position: relative;
+    margin-top: -.9em;
+}
+
+
+
+.info_wrapper {
+  width: 100%;
+  
+  text-align: center;
+}
+
+.info_container {
+  width: 100%;
+  position: absolute;
+  margin: 0 auto;
+  text-align: center;
+  background-color: blue;
+}
+
+.info_container div {
+  display: inline-block;
+}
+
+.info_sec { 
+    position: relative; 
+    display: inline-block;
+    width: 30%;
+    height: 20em;
+    margin: 5px;
+    padding: 3px;
+    background-color: transparent;
+    border-radius: 15px 50px;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.info_sec img {
+
+    width: 100%;
+    height: 100%;
+    border-radius: 15px 50px;
+  
+}
+
+.info_sec h2, p {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    text-align: center;
+    color: black;
+    
+}
+
+.info_sec h2 {
+    font-family: 'Shrikhand', cursive;
+    font-size: 50px;
+
+}
+
+.info_sec p {
+    font-family: 'Amatic SC', cursive;
+    font-size: 30px;
+    font-weight: bold;
+    padding-top: 30px;
+
+}
+
+
+.info_sec:hover h2 {
+    display: block;
+    background-color: orange;
+  opacity: .8;
+  /*transition: 1s ease;*/
+  -webkit-transition: background-color: orange  .5s ease;
+  transition: background-color: orange .5s ease;
+  border-radius: 15px 50px;
+} 
+
+.info_sec:hover h5 {
+    display: block;
+    
+  opacity: .8;
+  /*transition: 1s ease;*/
+  -webkit-transition: background-color: orange .5s ease;
+  transition: background-color: orange .5s ease;
+  border-radius: 15px 50px;
+}
+
+.info_sec:hover p {
+    display: block;
+    margin-top: 35px;
+}
+
+.about_btn {
+    margin-top: 20em;
+    margin-bottom: 2em;
+}
+
+.quote {
+    margin-top: 1em;
+    width: 100%;
+    height: 150px;
+    background-color: ;
+    color: gray solid;
+    font-size: 4em;
+    font-family: 'Cedarville Cursive', cursive;
+    text-shadow: 2px 2px 2px;
+}
+
+/*   End: Second Pannel --- What We're All About Title/Explaination/ Vol-Org-Bus 3 Sections Ptich*/
+
+
+/*    Begin: Thrid Pannel --- Leader Board/Services Section --- */
+
+
+
+.leader-section {
+    margin-top: em;
+    height: 100%;
+    padding-top: 500px;
+    text-align: center;
+    /*background: #eee;*/
+    background-image: url("https://static.pexels.com/photos/6550/nature-sky-sunset-man.jpeg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    opacity: ;
+    
+}
+
+.leader_col-lg-12 {
     width: 100%;
     background-color: ;
     position: relative;
     top: -50px;
 }
 
-.present span { /*---Line between volunteer/org/local Business------ */
-    background: rgb(186,177,152);
-    display: inline-block;
-    vertical-align:top;
-    min-height: 25em;
-    margin: 0;
-    width: 1px;
+
+/*    End: Thrid Pannel --- Leader Board/Services Section --- */
+
+
+<---------- Begin: Fourth Pannel ----- Your Area -------- Map Secion ------->
+
+
+.area-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    background: #fff;
 }
 
-.present div { /*------ Line between  volunteer/org/local Business sections------ */
-    background-color: ;
-    width: 10em;
-    height: auto;
-    display: inline-block;
-    vertical-align:center;
-    
-}
-
-.present h5 {
-    font-family: 'Heebo', sans-serif;
-    font-weight: 20px;
-    font-size: 25px;
-}
-
-.present {
-    margin-top: .9em;
-    background-color: ;
-    min-width: 767px;
+.area_col-lg-12 {
     width: 100%;
-    background-color: ;
 }
 
 
 
 
-/*   End: Second Pannel --- What We're All About Title/Explaination/ Vol-Org-Bus 3 Sections Ptich*/
 
 
 
+<---------- End: Fourth Pannel ----- Your Area -------- Map Secion ------->
 
 .logo {
     width: 19em;
@@ -239,24 +497,20 @@ section {
 
 /* about/volunteer/second section of the home page- end*/
 
-.services-section {
+
+
+.contact-section {
     height: 100%;
     padding-top: 150px;
     text-align: center;
     background: #fff;
 }
 
-.contact-section {
+.contacttwo-section {
     height: 100%;
     padding-top: 150px;
     text-align: center;
     background: #eee;
 }
 
-.area-section {
-    height: 100%;
-    padding-top: 150px;
-    text-align: center;
-    background: #fff;
-}
 

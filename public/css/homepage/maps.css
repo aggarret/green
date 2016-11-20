@@ -5,13 +5,16 @@
 	    padding: 0;
   	}
 
+  	
+
   	#main {
 	    margin-top: 50px;
 	  }
 
 	#map {
 	    height: 500px;
-	    width: 90%;
+	    width: 100%;
+
 	  }
 
 </style>
