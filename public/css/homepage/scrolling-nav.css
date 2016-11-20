@@ -136,6 +136,7 @@ section {
 
 .btn {
   margin-bottom: -1px;
+  text-align: center;
 }
 
 
@@ -259,15 +260,7 @@ div.intro-section  h1 {
 
 
 .about-section {
-    /*margin-top: 7em;*/
-    /*width: 100%;
-    height: 100%;
-    text-align: center;
-    background-color: blue;
-    position: relative;
-    top: 12em;
-    opacity: .6;*/
-    /*margin-top: 25em;*/
+
     height: 100%;
     padding-top: 150px;
     text-align: center;
@@ -309,11 +302,13 @@ div.intro-section  h1 {
 }
 
 
-
 .info_wrapper {
-  width: 100%;
-  
-  text-align: center;
+    position: relative;
+    bottom: 9em;
+    width: 100%;
+    background-color: yellow;
+    text-align: center;
+
 }
 
 .info_container {
@@ -332,7 +327,7 @@ div.intro-section  h1 {
     position: relative; 
     display: inline-block;
     width: 30%;
-    height: 20em;
+    height: 15em;
     margin: 5px;
     padding: 3px;
     background-color: transparent;
@@ -363,15 +358,15 @@ div.intro-section  h1 {
 
 .info_sec h2 {
     font-family: 'Shrikhand', cursive;
-    font-size: 50px;
+    font-size: 45px;
 
 }
 
 .info_sec p {
     font-family: 'Amatic SC', cursive;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
-    padding-top: 30px;
+    padding-top: 25px;
 
 }
 
@@ -402,17 +397,18 @@ div.intro-section  h1 {
 }
 
 .about_btn {
-    margin-top: 20em;
-    margin-bottom: 2em;
+    
+    margin-top: 1em;
 }
 
 .quote {
-    margin-top: 1em;
+    position: relative;
+    bottom: 4em;
     width: 100%;
-    height: 150px;
+    height: 75px;
     background-color: ;
     color: gray solid;
-    font-size: 4em;
+    font-size: 2em;
     font-family: 'Cedarville Cursive', cursive;
     text-shadow: 2px 2px 2px;
 }
@@ -448,27 +444,56 @@ div.intro-section  h1 {
 /*    End: Thrid Pannel --- Leader Board/Services Section --- */
 
 
-<---------- Begin: Fourth Pannel ----- Your Area -------- Map Secion ------->
+/*<---------- Begin: Fourth Pannel ----- Your Area -------- Map Secion ------->*/
 
 
 .area-section {
     height: 100%;
     padding-top: 150px;
     text-align: center;
-    background: #fff;
+    background: ;
+    
+    
+}
+
+.area-section div {
+    position: relative;
+    
+
 }
 
 .area_col-lg-12 {
     width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 12em;
+    background: ;
+}
+
+
+#map {
+    height: 500px;
+    width: 100%;
+    
 }
 
 
 
 
+/*<---------- End: Fourth Pannel ----- Your Area -------- Map Secion ------->*/
 
 
+/*<------------ Begin*/
 
-<---------- End: Fourth Pannel ----- Your Area -------- Map Secion ------->
+.moreinfo-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    background: grey;
+}
+
+
+/*<--------------- End: */
 
 .logo {
     width: 19em;
@@ -506,11 +531,6 @@ div.intro-section  h1 {
     background: #fff;
 }
 
-.contacttwo-section {
-    height: 100%;
-    padding-top: 150px;
-    text-align: center;
-    background: #eee;
-}
+
 
 

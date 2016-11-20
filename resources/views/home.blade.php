@@ -6,90 +6,83 @@
 
 @section('head')
     <!-- CSS -->
-    <link href="{{ URL::to('css/scrolling-nav.css') }}" rel="stylesheet" type="text/css" >
+    <link href="{{ URL::to('css/homepage/scrolling-nav.css') }}" rel="stylesheet" type="text/css" >
     <link href="{{ URL::to('css/homepage/maps.css') }}" rel="stylesheet" type="text/css" >
     <link href="{{ URL::to('css/jquery-ui.css') }}" rel="stylesheet" type="text/css" >
     <link href="{{ URL::to('css/Home.css') }}" rel="stylesheet" type="text/css" >
 @endsection
 
 @section('content')
-    <!-- Intro Section -->
+   <!-- Intro Section/First Section-->
     <section id="intro" class="intro-section">
-    <h1>test</h1>
-        <div class="intro_container">
-            <div class="intro_row">
-                <div class="intro_col-lg-12">
-                    <h1>Carrot Path</h1>
-                    <h3> Whether you're a Voluenteer, Organizer or Local Buisness</h3>
-                    <h3>Carrot Path has a route for you!</h3>
-                    <a class="btn btn-default page-scroll" href="#about"></a>
-                    <h4>Follow the Path to Learn More</h4>
-                    <video poster="long.jpg" autoplay="true" loop> 
+        <video poster="long.jpg" autoplay="true" loop> 
                         <source src="https://s3.amazonaws.com/distill-videos/videos/processed/34/BetweenTwoTrees-HD.mp4.webm" type="video/webm">
                         <source src="https://s3.amazonaws.com/distill-videos/videos/processed/34/BetweenTwoTrees-HD.mp4-mobile.mp4" type="video/mp4">
                    </video>
+        <div class="intro_container">
+            <div class="intro_row">
+                <div class="intro_col-lg-12">
+
+                        <h1>Carrot Path</h1> 
+                        <h3> Whether you're a <span id="vol-welcome"><a href="{{ URL::to('volunteer/register') }}">Voluenteer</a></span>, <span id="org-welcome"><a href="organization/register">Organizer</a></span> or <span id="bus-welcome"><a href="admin/register">Local Buisness</a></span></h3>
+                        <h3>Carrot Path has a route for you! Register now!</h3>
+                    <a class="btn btn-default page-scroll" href="#about"></a>
+                    <h4>Follow the Path to Learn More</h4>
+                    
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+     <!-- About Section -->
     <section id="about" class="about-section">
         <!-- <img src="/images/vol_pic.jpg" alt="picture"/> -->
         <div class="about_container">
             <div class="row">
                 <div class="about_col-lg-12">
-                    <h1>What We're All About</h1>
-                    <h4>We're a platform that connects organizations, voluneteers and local buisnesses to fulfill worthy causes within the community.</h4>
-                    <a class="btn btn-default page-scroll about_btn" href="#services"></a>
-                    <div id="tabs">
-  <ul>
-    <li><a href="#tabs-1">Volunteer</a></li>
-    <li><a href="#tabs-2">Organization</a></li>
-    <li><a href="#tabs-3">Merchant</a></li>
-  </ul>
-  <div id="tabs-1">
-    <p><strong>Volunteers</strong></p>
-    <ul style="list-style: none;">
-       
-        <li>Strengthen local community by volunteering at local Non-Profit Organizations.</li>
-        <li>Strengthen own personal network by hanging out at the planned “after party” with fellow volunteers</li>
-        <li>Informed of  interested Non-Profits</li>
-        <li><a id='Volunteer' href="{{ url('/volunteer/login') }}">Volunteers Login</a></li>
-        <li><a id='RegVol' href="{{ url('/volunteer/register') }}">Register Volunteers</a></li><br>
-    </ul>
-  </div>
-  <div id="tabs-2">
-    <p><strong>Organization</strong></p>
-    <ul style="list-style: none;">
-       
-        <li>Direct access to pool of Carrot Path volunteers</li>
-        <li>We say “Thank you for volunteering with us” on behalf of the Non-Profits</li>
-        <li>Stay in touch with community</li>
-        <li><a id='Organization' href="{{ url('/organization/login') }}">Organizations Login</a></li>
-        <li><a id='RegOrg' href="{{ url('/organization/register') }}">Register Organizations</a></li>
-    </ul>
-  </div>
-  <div id="tabs-3">
-    <p><strong>Local/Global Businessn</strong></p>
-    <ul style="list-style: none;">
-        <li>More Customers</li>
-        <li>Stay in touch with community</li>
-        <li>Market products/services to new audience</li>
-        <li>Click Here to Learn More</li>
-    </ul>
-  </div>
-</div>
+                    <h1>What We're <span style="color: #FD8332">A</span><span style="color: #2FD935">l</span><span style="color: #2FD935">l</span> About</h1>
+                    <div class="info_wrapper">
+                        <div class="info_contianer">
+                            <div class="info_sec">
+                                <h2>Volunteers</h2>
+                                <p>- Connect with Organizations<br>
+                                - Roll up your sleeves and help out! <br>
+                                - Earn and Redeem Carrot points for your time<br>
+                                <a href="{{ URL::to('volunteer/register') }}">Sign Up Now!</a></p>
+                                <img src="http://www.causeandeventraceseries.com/wp-content/uploads/2016/07/volunteer.jpg"/>
+                            </div>
+                            <div class="info_sec">
+                                <h2>Organizations</h2>
+                                <p>- Connect with Volunteers<br>
+                                - Some other good reason <br>
+                                - And another good reason here<br>
+                                <a href="{{ URL::to('organization/register') }}">Sign Up Now!</a></p>
+                                <img src="http://www.fastweb.com/uploads/article_photo/photo/1928350/crop380w_community_hands.jpg"/>
+                            </div>
+                            <div class="info_sec">
+                                <h2>Businesses</h2>
+                                <p>- Get involved with the local community<br>
+                                - Some succinct reason regarding tax breaks<br>
+                                - Another succinct reason for getting fresh business through donated coupons<br>
+                                <a href="{{ URL::to('admin/register') }}">Sign Up Now!</a></p>
+                                <img src="https://www.freshbooks.com/blog/wp-content/uploads/2013/07/SEO7.png"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quote">Some awe inspiring quote about volunteering.......<br>
+                                                                                         <br>   
+                                                                            - From Someone Important</div>
                 </div>
+                <a class="btn btn-default page-scroll about_btn" href="#leader"></a>
             </div>
         </div>
     </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services-section">
+ 
+    <!-- Services Section/ Third Section -->
+    <section id="leader" class="leader-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div  class="leader_col-lg-12">
                     <h1>Leader Boards</h1>
                     <a class="btn btn-default page-scroll" href="#contact"></a>
                 </div>
@@ -101,25 +94,22 @@
     <section id="area" class="area-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                
+                <div class="area_col-lg-12">
                     <h1>Your Area</h1>
-
-                    <!-- Jquery places map inside the div-->
-                    <div class="mapParent">
-                        <div id="map"></div>
-                        <div id="progressBar"></div>
-                    </div>
-                    
-                    <a class="btn btn-default page-scroll" href="#contacttwo"></a>
+                    <div id="map"></div> <!-- Jquery places map inside the div-->
+                    <div id="progressBar"></div>
+                    <a class="btn btn-default page-scroll about_btn" href="#contacttwo"></a>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section id="contacttwo" class="contact-section">
+    <section id="moreinfo" class="moreinfo-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="moreinfo_col-lg-12">
                     <h1>More Info</h1>
                     <a class="btn btn-default page-scroll" href="#intro"></a>
                 </div>
