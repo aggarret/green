@@ -84,7 +84,7 @@
             <div class="row">
                 <div  class="leader_col-lg-12">
                     <h1>Leader Boards</h1>
-                    <a class="btn btn-default page-scroll" href="#contact"></a>
+                    <a class="btn btn-default page-scroll" href="#map"></a>
                 </div>
             </div>
         </div>
@@ -99,7 +99,7 @@
                     <h1>Your Area</h1>
                     <div id="map"></div> <!-- Jquery places map inside the div-->
                     <div id="progressBar"></div>
-                    <a class="btn btn-default page-scroll about_btn" href="#contacttwo"></a>
+                    <a class="btn btn-default page-scroll about_btn" href="#moreinfo"></a>
                 </div>
 
             </div>

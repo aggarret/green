@@ -44,7 +44,7 @@
                     </div>
                 </li>
                 <li>
-            </div>
+            
                     <div class="sign_up">
                         <a class="dropbtn" style="color:#FD8332">Sign-up</a>
                         <div class="dropdown-content">
@@ -56,7 +56,7 @@
                 </li>
             </ul>
 
-               <!--  @if(Auth::guard('volunteer')->user())
+                @if(Auth::guard('volunteer')->user())
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::guard('volunteer')->user()->firstName }} <span class="caret"></span>
@@ -67,10 +67,10 @@
                                 <li><a href="{{ route('Calender.index') }}">My Events</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="{{ route('volunteer.logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                            </ul> -->
+                            </ul>
 
 
-                        <!-- </li>
+                        </li>
                     @elseif(Auth::guard('organization')->user())
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -89,7 +89,7 @@
                     @else
                     
                     @endif
-            </ul> -->
+            </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
