@@ -149,6 +149,21 @@ Route::group(['middleware' => ['organization']], function () {
         'as' => 'organization.account.image'
     ]);
 
+    Route::get('/organization/payment', [
+        'uses' => 'OrganizationController@getPayment',
+        'as' => 'organization.account.payment'
+    ]);
+
+    Route::post('/organization/payment', [
+        'uses' => 'OrganizationController@postPayment',
+        'as' => 'organization.account.payment'
+    ]);
+
+    Route::get('/organization/test', [
+        'uses' => 'OrganizationController@test',
+        'as' => 'organization.test'
+    ]);
+
         /*
     |--------------------------------------------------------------------------
     | Calender Routes  

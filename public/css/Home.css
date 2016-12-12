@@ -28,6 +28,10 @@ a:visited.ui-button,
 	font-family: 'Shrikhand', cursive;
 }
 
+.test-1 {
+	padding-top: 55px;
+}
+
 /*tabs header*/
 .ui-widget-header {
 	border: 1px solid #dddddd;

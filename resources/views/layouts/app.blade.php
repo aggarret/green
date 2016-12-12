@@ -15,6 +15,7 @@
 
 	    <!-- bootstrap 3.3.7-->
 	    <link href="{{ URL::to('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" >
+	    <link href="{{ URL::to('css/Home.css') }}" rel="stylesheet" type="text/css" >
 	    @yield('head')
 	</head>
 
@@ -23,7 +24,10 @@
 		<div class="main-body">
 			@include('includes.messages')
 			@include('includes.navBar')
-		    @yield('content')
+		    <div class="test-1">
+		    	@yield('content')
+		    </div>
+		    
 	    </div>
 
 

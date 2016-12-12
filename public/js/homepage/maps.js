@@ -33,7 +33,7 @@ function initialize(position)
     //set any map options here
 	var mapOptions = {
 		center: currentLocation,
-		zoom: 15
+		zoom: 13
 	};
 
     //Map is ready to load.  Destroy progress bad
