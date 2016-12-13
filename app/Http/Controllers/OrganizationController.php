@@ -114,13 +114,15 @@ class OrganizationController extends Controller
     public function postPayment(Request $request)
     {
         Log::info('inside postPayment');
-            
+        
+        //get stripe_screte_key from .env file
         $api_secret_key = getenv('STRIPE_SECRET_KEY');
         Log::info('api_secret_key' . $api_secret_key);
+
         Stripe::setApiKey($api_secret_key);
         try {
                 $charge = \Stripe\Charge::create(array(
-                "amount" => 1000, // Amount in cents
+                "amount" => 2000, // Amount in cents
                 "currency" => "usd",
                 "source" => $request['stripeToken'],
                 "description" => "Test"
