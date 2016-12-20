@@ -14,6 +14,16 @@
 
 @section('content')
 	<h1> test </h1>
+	<h2> Shared Photos from users </h2>
+	
+	@foreach ($photos as $photo)
+
+    <img src="{{ asset('organizations\photos' . $photo->image)}}">
+   {{--  <a class="btn btn-warning " href="{{ route ('AdminAddphoto', $photo->id ) }}">Share in about</a> --}}
+    <form action="{{ route ('AdminAboutphoto', $photo->id ) }}" method="GET" style="display: inline;"><input type="hidden" name="_method"><input type="hidden" name="_token" value="{{ csrf_token() }}"> <button class="btn btn-danger" type="submit">Share in about</button></form>
+
+	@endforeach
+
 @endsection
 
 

@@ -124,7 +124,6 @@
 
 @section('script')
     <!-- Scrolling Nav JavaScript -->
-    jquery-ui.js
     <script src="{{ URL::to('js/jquery-ui.js') }}"></script>
     <script src="{{ URL::to('js/jquery.easing.min.js') }}"></script>
     <script src="{{ URL::to('js/scrolling-nav.js') }}"></script>

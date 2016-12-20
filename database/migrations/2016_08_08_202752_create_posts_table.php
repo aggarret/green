@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->text('conversation');
             $table->integer('users_post_id')->unsigned();
             $table->integer('calendar_id');
-             $table->string('users_post_type');
+            $table->string('users_post_type');
             $table->timestamps();
         });
     }

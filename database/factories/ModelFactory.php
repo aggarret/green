@@ -11,11 +11,31 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Organization::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'firstName' => $faker->name,
+        'email' => $faker->unique()->email,
+        'password' => bcrypt("Damn22"),
+        'lastName'=> $faker->name,
+        'about' => $faker->realText(200, 2),
+    ];
+});
+
+$factory->define(App\Volunteer::class, function (Faker\Generator $faker) {
+    return [
+        'firstName' => $faker->name,
+        'lastName'=> $faker->name,
+        'email' => $faker->unique()->email,
+        'password' => bcrypt("Damn22"),
+    ];
+});
+
+$factory->define(App\CalendarEvent::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->name,
+        'start'=> $faker->dateTime(),
+        'end'=> $faker->dateTime(),
+        'description' => $faker->realText(200, 2),
+        'max_volunteer' =>$faker->randomNumber(2),
     ];
 });

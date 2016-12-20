@@ -44,4 +44,8 @@ class Volunteer extends Model implements Authenticatable
     {
         return $this->belongsToMany('App\CalendarEvent')->withPivot('hours_added');
     }
+    public function photo()
+    {
+        return $this->morphMany('App\Photo', 'user');
+    }
 }

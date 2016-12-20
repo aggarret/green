@@ -101,7 +101,7 @@ class CalendarEventController extends Controller
         $post = $post = post::all();
         $Org = organization::all();
         $Vol = $calendar_event->volunteers;
-         $exists = DB::table('calendar_event_volunteer');
+        $exists = DB::table('calendar_event_volunteer');
 
 
 

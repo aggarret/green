@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use Log;
 use App\User;
+use App\Volunteer;
 use App\Interest;
 use Session;
 use App\CalendarEvent;
@@ -36,14 +37,23 @@ class VolunteerController extends Controller
     public function getDashboard()
     {
     $user = Auth::guard('volunteer')->user();
+    
+
+    
+
+
     $calendar_events = CalendarEvent::all();
 
+
+
+   
+
         
-        $userInterests = Auth::guard('volunteer')->user()->interests()->get();
+       $userInterests = Auth::guard('volunteer')->user()->interests()->get();
         return view('/volunteer/dashboard', [
             'user' => $user,
             'userInterests' => $userInterests,
-            
+            'calendar_events' => $calendar_events
         ]);
     }
 

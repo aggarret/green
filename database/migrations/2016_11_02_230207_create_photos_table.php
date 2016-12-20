@@ -18,7 +18,11 @@ class CreatePhotosTable extends Migration
             $table->string('user_type');
             $table->integer('calendar_id');
             $table->string('image');
-            $table->string('shared');
+            $table->boolean('shared')->default(0);
+            $table->string('shared_image');
+            $table->integer('admin_ok');
+            $table->string('about_file');
+            $table->string('testimonial');
             $table->timestamps();
         });
     }

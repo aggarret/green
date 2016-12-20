@@ -36,7 +36,7 @@ protected $table ='organizations';
     {
         return $this->morphMany('App\post', 'users_post');
     }
-     public function Photo()
+     public function photo()
     {
         return $this->morphMany('App\Photo', 'user');
     }

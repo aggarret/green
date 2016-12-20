@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
+use Illuminate\Database\Eloquent\Relations;
 use App\Http\Requests;
 use App\CalendarEvent;
 use App\Organization;
@@ -17,6 +17,7 @@ use DB;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use App\Photo;
 
 class AdminController extends Controller
 {
@@ -27,9 +28,38 @@ class AdminController extends Controller
     public function getDashboard()
     {
         $user = Auth::guard('admin')->user();
-        return view('admin.dashboard');
-    }
 
+        $photos = Photo::where('shared', true)->get();
+
+
+        
+        foreach ($photos as &$photo) {
+        Log::info('test'.$photo->shared);
+        }
+        
+        return view('admin.dashboard', compact('photos'));
+    }
+    public function AboutShare($id)
+    {
+        $photo = Photo::findorfail($id);   
+        return view('admin.Share_About_Photos', compact('photo'));
+    }
+    public function AddPhoto($id)
+    {
+        
+        $photo = Photo::findorfail($id);
+        //Add the image name to the about file so it can be accessed on about page.
+        $photo->about_file = $photo->image;
+
+
+
+        //Add file name to colum named approved_by_admin
+        $user = Auth::guard('admin')->user();
+        $photo->admin_ok = $user->id;
+        $photo->save();
+        return back();
+
+    }
 
     public function getPanelInterests(Request $request, $id = 'id', $direction = 'desc')
     {

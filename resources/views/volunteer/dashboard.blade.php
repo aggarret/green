@@ -12,9 +12,13 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.print.css" media="print"/>
  <link href="{{ URL::to('css/Dropzone.css') }}" rel="stylesheet" />
+ <link href="{{ URL::to('css/jquery-ui.css') }}" rel="stylesheet" type="text/css" >
 
 @endsection
 @section('content')
+<div class="page-header">
+        <h1>CalendarEvents</h1>
+ </div>
 <div class="container">
 	<div class="row">
 		<!-- Tracked Hours -->
@@ -43,12 +47,16 @@
 			</div>
 		@endif
 	
-	<!-- Photos -->
+	<!-- User add Photos -->
 	<div class="container">
-		<form class="dropzone" mehod="post" action="/{{$user->firstName}}/{{$user->id}}/photos">
-			<div class="dz-message" data-dz-message><span>Upload Photos from your event</span></div>
-			<input type="hidden" value="{{ Session::token() }}" name="_token">
-		</form>
+	  <form action="{{ route('VolStorePhoto')}}" method="post" enctype="multipart/form-data">
+    	Select image to upload:
+    	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+    	<label for="tags">Tags: </label>
+  		<input id="tags"  name="calander_id">
+    	<input type="submit" value="Upload Image" name="submit">
+    	<input type="file" class="uploade" name="file" id="fileToUpload">
+	  </form>
 	</div>
 
 	<!-- Badges -->
@@ -57,7 +65,6 @@
 			<div class="col-md-12"><h3>Badges goes here</h3></div>
 		</div>
 	</div>
-
 
 	
 	<div class="container">
@@ -80,15 +87,23 @@
 			</div>
 		</div>
 	</div>
-	
 @endsection
 
 
 @section('script')
-	<script src="{{ URL::to('/js/Dropzone.js') }}"></script>
+	<script src="{{ URL::to('js/jquery-ui.js') }}"></script>
 	<script>
-		Dropzone.options.addPhotosForm = {
-			acceptedFiles:'.jpg, .jpeg, .png, .bmp', 
-		};
-	</script>
+  $( function() {
+    var availableTags = [
+      @foreach ($calendar_events as $calendar_event)
+    "{{ $calendar_event->title }}",
+		@endforeach
+      "Scheme"
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script>
+	
 @endsection

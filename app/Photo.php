@@ -10,4 +10,9 @@ class Photo extends Model
     {
         return $this->morphTo();
     }
+
+     protected $casts = [
+        'shared' => 'boolean',
+    ];
+    
 }

@@ -1,4 +1,11 @@
 @extends('layouts.app')
+@section('head')
+    <!-- CSS -->
+    
+    <link href="{{ URL::to('css/jquery-ui.css') }}" rel="stylesheet" type="text/css" >
+    <link href="{{ URL::to('css/bootstrap-datetimepicker.css') }}" rel="stylesheet" type="text/css" >
+    
+@endsection
 
 @section('content')
     <div class="page-header">
@@ -54,10 +61,7 @@
     </div>
 
 @section('script')
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.3/jquery.timepicker.min.js"></script>
-
+    
     <script src="{{ URL::to('js/bootstrap-datetimepicker.js') }}"></script>
     <script src="{{ URL::to('js/javas.js') }}"></script>
 @endsection

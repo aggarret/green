@@ -21,6 +21,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/', 'HomeController@index');
     Route::get('/home', 'HomeController@index');
     Route::get('/test', 'HomeController@test');
+    Route::get('/about', 'AboutPageController@getDashboard');
 
     //Volunteer Registration Routes...
     Route::get('/admin/register',  'AdminAuth\AuthController@showRegistrationForm');
@@ -110,6 +111,15 @@ Route::group(['middleware' => ['volunteer']], function ()
         'as'=>'calendar_events.register',
         'uses'=>'VolunteerController@getEventRegister'
     ]);
+/*
+    |--------------------------------------------------------------------------
+    | Photo Routes  
+    |--------------------------------------------------------------------------
+    */
+     Route::post('/volunteer/Createphoto', [
+        'as'=>'VolStorePhoto',
+        'uses'=>'Photocotroller@store'
+    ]);
 });
 
 
@@ -148,7 +158,30 @@ Route::group(['middleware' => ['organization']], function () {
         'uses' => 'OrganizationController@getUserImage',
         'as' => 'organization.account.image'
     ]);
+    /*
+    |--------------------------------------------------------------------------
+    | Photo Routes  
+    |--------------------------------------------------------------------------
+    */
 
+    Route::post('/Organization/Createphoto', [
+        'as'=>'OrgStorePhoto',
+        'uses'=>'Photocotroller@store'
+    ]);
+
+    Route::get('/Organization/EditPhoto/{id}', [
+        'as'=>'OrgEditPhoto',
+        'uses'=>'Photocotroller@edit'
+        ]);
+
+    Route::post('/Organization/Update/{id}', [
+        'as'=>'OrgUpdatePhoto',
+        'uses'=>'Photocotroller@update'
+        ]);
+    Route::delete('/Organization/Delete/{id}', [
+        'as'=>'OrgDeletePhoto',
+        'uses'=>'Photocotroller@destroy'
+        ]);
         /*
     |--------------------------------------------------------------------------
     | Calender Routes  
@@ -167,7 +200,7 @@ Route::group(['middleware' => ['organization']], function () {
 |
 */
 Route::group(['middleware' => ['admin']], function () {
-    //Organization logout Route...
+    //Admin logout Route...
     Route::get('/admin/logout', [
         'uses' => 'AdminAuth\AuthController@logout',
         'as' => 'admin.logout',
@@ -234,6 +267,15 @@ Route::group(['middleware' => ['admin']], function () {
         'uses' => 'AdminController@test',
         'as' => 'admin.panel.interests.test',
     ]);
+     /*
+    |--------------------------------------------------------------------------
+    | Photo Routes  
+    |--------------------------------------------------------------------------
+    */
+    Route::get('/admin/Photo{id}', [
+        'uses' => 'AdminController@AddPhoto',
+        'as' => 'AdminAboutphoto',
+    ]); 
 });
 
 
