@@ -11,7 +11,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top" style="color:orange">CP</a>
+            <a class="navbar-brand page-scroll" href="#page-top" style="color:#FD8332">CP</a>
         </div>
 
          <!-- Collect the nav links, forms, and other content for toggling -->
@@ -22,20 +22,39 @@
                     <a class="page-scroll" href="#page-top"></a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#about" style="color:orange">About</a>
+                    <a class="page-scroll" href="#about" style="color:#FD8332">About</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#services" style="color:orange">Leader Boards</a>
+                    <a class="page-scroll" href="#services" style="color:#FD8332">Leader Boards</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#contact" style="color:orange">Your Area</a>
+                    <a class="page-scroll" href="#contact" style="color:#FD8332">Your Area</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#contacttwo" style="color:orange">More Info</a>
+                    <a class="page-scroll" href="#contacttwo" style="color:#FD8332">More Info</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#" style="color:orange">Sign-In/Sign-up</a>
+                    <div class="sign_in">
+                        <a class="dropbtn" style="color:#FD8332">Sign-in</a>
+                        <div class="dropdown-content">
+                            <a href="volunteer/login">Volunteers</a>
+                            <a href="organization/login">Organizations</a>
+                            <a href="admin/login">Businesses</a>
+                        </div>
+                    </div>
                 </li>
+                <li>
+            
+                    <div class="sign_up">
+                        <a class="dropbtn" style="color:#FD8332">Sign-up</a>
+                        <div class="dropdown-content">
+                            <a href="volunteer/register">Volunteers</a>
+                            <a href="organization/register">Organizations</a>
+                            <a href="admin/register">Businesses</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
 
                 @if(Auth::guard('volunteer')->user())
                         <li class="dropdown">

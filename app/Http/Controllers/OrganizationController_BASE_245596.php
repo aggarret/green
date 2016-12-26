@@ -7,18 +7,13 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\CalendarEvent;
 use App\Volunteer;
-use App\Organization;
 use DB;
-use Log;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
-use App\Photo;
-use Stripe\Stripe;
-
 
 class OrganizationController extends Controller
 {
@@ -52,8 +47,6 @@ class OrganizationController extends Controller
         
         $Attending = DB::table('calendar_event_volunteer')->select('volunteer_id')->get();
 
-        $photo = Photo::all();
-
         $volunteers = DB::table('volunteers')
             ->whereExists(function ($query) {
                 $query->select(DB::raw(1))
@@ -62,10 +55,7 @@ class OrganizationController extends Controller
             })
             ->get();
 
-
         $user = Auth::guard('organization')->user();
-
-        $user = organization::findorfail($user->id); 
 
         return view('organization.dashboard', compact('user', 'volunteers','calendar_events', 'calendar'));
     }
@@ -109,39 +99,4 @@ class OrganizationController extends Controller
         //$file = Storage::get($filename);
         return new Response($file, 200);
     }
-
-    public function test()
-    {
-        return view('organization.test');
-    }
-    public function getPayment()
-    {
-        return view('organization.payment');
-    }
-
-    public function postPayment(Request $request)
-    {
-        Log::info('inside postPayment');
-        
-        //get stripe_screte_key from .env file
-        $api_secret_key = getenv('STRIPE_SECRET_KEY');
-        Log::info('api_secret_key' . $api_secret_key);
-
-        Stripe::setApiKey($api_secret_key);
-        try {
-                $charge = \Stripe\Charge::create(array(
-                "amount" => 2000, // Amount in cents
-                "currency" => "usd",
-                "source" => $request['stripeToken'],
-                "description" => "Test"
-                ));
-        } catch(\Stripe\Error\Card $e) {
-            return view('organization.payment', [
-                'error' => $e->getMessage()
-            ]);
-        }
-        Log::info('everything appears to be working');
-        return redirect()->route('organization.test');
-    }
-
 }

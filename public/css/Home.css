@@ -28,6 +28,10 @@ a:visited.ui-button,
 	font-family: 'Shrikhand', cursive;
 }
 
+.test-1 {
+	padding-top: 55px;
+}
+
 /*tabs header*/
 .ui-widget-header {
 	border: 1px solid #dddddd;
@@ -35,3 +39,17 @@ a:visited.ui-button,
 	color: #333333;
 	font-weight: bold;
 }
+
+.mapParent {
+	postion: absolute;
+	width: 85%;
+	left: 50%;
+	background-color: pink;
+}
+
+#map#progressBar {
+	position: relative;
+	display: inline;
+	width: 100%;
+	
+}	

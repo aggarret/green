@@ -23,6 +23,18 @@ class CreateCalendarEventsTable extends Migration
             $table->text('description');
             $table->integer('max_volunteer')->unsigned();
             $table->integer('num_registered_volunteers')->unsigned()->default(0);
+
+            $table->text('address_street');
+            $table->text('address_city');
+            $table->text('address_state');
+            $table->integer('address_zip');
+
+            $table->decimal('coord_lat', 10, 7);
+            $table->decimal('coord_lng', 10, 7);
+
+            $table->text('google_city');
+            $table->text('google_county');
+
             $table->integer('organization_id')->unsigned()->index();
             $table->foreign('organization_id')->references('id')->on('organizations')->onDelete('cascade');
             $table->timestamps();

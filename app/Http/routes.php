@@ -169,6 +169,7 @@ Route::group(['middleware' => ['organization']], function () {
         'uses'=>'Photocotroller@store'
     ]);
 
+<<<<<<< HEAD
     Route::get('/Organization/EditPhoto/{id}', [
         'as'=>'OrgEditPhoto',
         'uses'=>'Photocotroller@edit'
@@ -182,6 +183,23 @@ Route::group(['middleware' => ['organization']], function () {
         'as'=>'OrgDeletePhoto',
         'uses'=>'Photocotroller@destroy'
         ]);
+=======
+    Route::get('/organization/payment', [
+        'uses' => 'OrganizationController@getPayment',
+        'as' => 'organization.account.payment'
+    ]);
+
+    Route::post('/organization/payment', [
+        'uses' => 'OrganizationController@postPayment',
+        'as' => 'organization.account.payment'
+    ]);
+
+    Route::get('/organization/test', [
+        'uses' => 'OrganizationController@test',
+        'as' => 'organization.test'
+    ]);
+
+>>>>>>> a09227f435cf76f92dd74b7364de539532291feb
         /*
     |--------------------------------------------------------------------------
     | Calender Routes  

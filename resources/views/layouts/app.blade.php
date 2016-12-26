@@ -15,6 +15,7 @@
 
 	    <!-- bootstrap 3.3.7-->
 	    <link href="{{ URL::to('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" >
+	    <link href="{{ URL::to('css/Home.css') }}" rel="stylesheet" type="text/css" >
 	    @yield('head')
 	</head>
 
@@ -23,17 +24,26 @@
 		<div class="main-body">
 			@include('includes.messages')
 			@include('includes.navBar')
-		    @yield('content')
+		    <div class="test-1">
+		    	@yield('content')
+		    </div>
+		    
 	    </div>
 
 
 	    <!-- jquery 3.1.1-->
 		<script src="{{ URL::to('assets/jquery-3.1.1.min.js') }}"></script>
 		<script src="{{ URL::to('assets/js/bootstrap.min.js') }}"></script>
+<<<<<<< HEAD
 		
 		{{-- custom jquery code --}}
 		
 		 		@yield('script')
 		
+=======
+
+		<!-- custom jquery code-->
+		@yield('script')
+>>>>>>> a09227f435cf76f92dd74b7364de539532291feb
 	</body>
 </html>

@@ -6,9 +6,7 @@ use MaddHatter\LaravelFullcalendar\Event;
 
 class CalendarEvent extends Model implements Event
 {   
-    
-
-    protected $fillable = ['title', 'start', 'end', 'is_all_day', 'background_color'];
+    protected $fillable = ['title', 'start', 'end', 'address_street', 'address_city', 'address_state', 'address_zip', 'coord_lat', 'coord_lng'];
     
 
 
