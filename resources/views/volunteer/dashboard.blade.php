@@ -48,16 +48,31 @@
 		@endif
 	
 	<!-- User add Photos -->
-	<div class="container">
-	  <form action="{{ route('VolStorePhoto')}}" method="post" enctype="multipart/form-data">
-    	Select image to upload:
-    	<input type="hidden" name="_token" value="{{ csrf_token() }}">
-    	<label for="tags">Tags: </label>
-  		<input id="tags"  name="calander_id">
-    	<input type="submit" value="Upload Image" name="submit">
-    	<input type="file" class="uploade" name="file" id="fileToUpload">
-	  </form>
-	</div>
+	<button id="AddPhoto" class="btn btn-success" type="submit">Add Photo!</button>
+
+    <div class="container">
+      <form action="{{ route('OrgStorePhoto')}}" id="form1" method="post" enctype="multipart/form-data">
+        <fieldset>
+        Select image to upload:
+        {{-- CSRF Tolken --}}
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        {{-- Share option --}}
+        <input type="radio" name="shared" value="TRUE"> Allow us to share<br>
+        <input type="radio" name="shared" value="" checked> keep photo on my page <br>
+        {{-- Autocomplete field for coresponding calendar events --}} 
+        <label for="calender">Calendar event </label>
+        <input id="calendar_id" name="calendar_id" value="2" type ="hidden">
+        <input id="calender"  name="calender" class="ui-front" >
+        {{-- Testimonial Area --}}
+         <textarea rows="4" cols="50" name="testimonial" form_id="form2" id="testimonial" hidden>
+Please briefly tell us what you personally enjoyed about this event!
+</textarea>
+        <input type="submit" value="Upload Image" name="submitForm">
+        {{-- Select File to Upload --}}
+        <input type="file" class="uploade" name="file" id="fileToUpload">
+      </fieldset>
+      </form>
+    </div>
 
 	<!-- Badges -->
 	<div class="container">
@@ -91,19 +106,64 @@
 
 
 @section('script')
-	<script src="{{ URL::to('js/jquery-ui.js') }}"></script>
-	<script>
-  $( function() {
-    var availableTags = [
+<script src="{{ URL::to('js/jquery-ui.js') }}"></script>
+<script text=javascript>
+$(function() {
+  
+  // List for autocomplete to pull from using foreach blade statement for the lable and value 
+   var availableTags = [
       @foreach ($calendar_events as $calendar_event)
-    "{{ $calendar_event->title }}",
-		@endforeach
-      "Scheme"
-    ];
-    $( "#tags" ).autocomplete({
-      source: availableTags
-    });
-  } );
-  </script>
-	
-@endsection
+      
+                     { label: "{{ $calendar_event->title }}", value: "{{ $calendar_event->id }}" },
+     
+        @endforeach
+        
+];
+// When button is selected Show photo form
+$( "#AddPhoto" ).click(function() {
+  $("#form1").dialog();
+});
+// If radio input is selected show the input fields for calander and testimonial sections
+ $('input[name=shared]').change(function() {
+  if ( $('input[name=shared]:checked').val() === "TRUE" ) {
+    $("#testimonial").show();
+    $("#calander").show();  
+}
+  else{
+    $("#testimonial").hide();
+    $("#calander").hide();
+  }
+
+
+});
+
+// Jquery-ui autocomplete 
+$( "#calender" ).autocomplete({
+      appendTo: "#form1",
+      source: availableTags,
+      autoFocus: true,
+      select: function(event, ui) {
+           var num = ui.item.value;
+           var id = num.toString();
+           $('#calender').val(ui.item.label);  // display the selected text
+           $('#calendar_id').val(ui.item.value); // save selected id to hidden input
+           console.log(ui.item.value);
+           document.getElementsByTagName("INPUT")[3].setAttribute("value", "2"); 
+
+           return false;
+          
+          
+        },
+       change: function( event, ui ) {
+        $( "#calendar_id" ).val( ui.item? ui.item.value : 0 );
+       
+    } 
+  });
+ 
+});
+
+</script>
+
+
+@endsection 
+

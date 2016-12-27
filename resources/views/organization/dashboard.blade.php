@@ -62,8 +62,11 @@ Please briefly tell us what you personally enjoyed about this event!
 
 <!-- Show Photos posted belonging organization for edition and deleating -->
 @forelse ($user->photo as $photo)
+    {{-- Show Image --}} 
     <img src="{{ asset('organizations\photos' . $photo->image)}}">
-    <a class="btn btn-warning " href="{{ route ('OrgEditPhoto', $photo->id ) }}">Edit</a>
+    {{-- Edit Button --}}
+    <a class="btn btn-warning" href="{{ route ('OrgEditPhoto', $photo->id ) }}">Edit</a>
+    {{-- Delete Method --}} 
     <form action="{{ route('OrgDeletePhoto', $photo->id) }}" method="POST" style="display: inline;" onsubmit="if(confirm('Delete? Are you sure?')) { return true } else {return false };"><input type="hidden" name="_method" value="DELETE"><input type="hidden" name="_token" value="{{ csrf_token() }}"> <button class="btn btn-danger" type="submit">Delete</button></form>
 
 @empty
@@ -82,7 +85,7 @@ Please briefly tell us what you personally enjoyed about this event!
 <script text=javascript>
 $(function() {
   
-
+  // List for autocomplete to pull from using foreach blade statement for the lable and value 
    var availableTags = [
       @foreach ($calendar_events as $calendar_event)
       
@@ -91,10 +94,11 @@ $(function() {
         @endforeach
         
 ];
-
+// When button is selected Show photo form
 $( "#AddPhoto" ).click(function() {
   $("#form1").dialog();
 });
+// If radio input is selected show the input fields for calander and testimonial sections
  $('input[name=shared]').change(function() {
   if ( $('input[name=shared]:checked').val() === "TRUE" ) {
     $("#testimonial").show();
@@ -108,7 +112,7 @@ $( "#AddPhoto" ).click(function() {
 
 });
 
-
+// Jquery-ui autocomplete 
 $( "#calender" ).autocomplete({
       appendTo: "#form1",
       source: availableTags,
