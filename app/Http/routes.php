@@ -79,6 +79,16 @@ Route::group(['middleware' => ['volunteer']], function ()
         'as' => 'volunteer.dashboard',
     ]);
 
+    Route::get('/Volunteer/EditPhoto/{id}', [
+        'uses'=>'Photocotroller@edit',
+        'as'=> 'VolEditPhoto'
+        ]);
+
+    Route::delete('/Volunteer/Delete/{id}', [
+        'as'=>'VolDeletePhoto',
+        'uses'=>'Photocotroller@destroy'
+        ]);
+
     Route::get('/volunteer/account', [
         'uses' => 'VolunteerController@getAccount',
         'as' => 'volunteer.account.save',

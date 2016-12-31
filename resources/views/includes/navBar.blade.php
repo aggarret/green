@@ -33,28 +33,30 @@
                 <li>
                     <a class="page-scroll" href="#contacttwo" style="color:#FD8332">More Info</a>
                 </li>
-                <li>
-                    <div class="sign_in">
-                        <a class="dropbtn" style="color:#FD8332">Sign-in</a>
-                        <div class="dropdown-content">
-                            <a href="volunteer/login">Volunteers</a>
-                            <a href="organization/login">Organizations</a>
-                            <a href="admin/login">Businesses</a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-            
-                    <div class="sign_up">
-                        <a class="dropbtn" style="color:#FD8332">Sign-up</a>
-                        <div class="dropdown-content">
-                            <a href="volunteer/register">Volunteers</a>
-                            <a href="organization/register">Organizations</a>
-                            <a href="admin/register">Businesses</a>
-                        </div>
-                    </div>
-                </li>
+                <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Sign-in <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu list-group">
+                                <li><a href="/volunteer/login">Volunteers</a></li>
+                                <li><a href="/organization/login">Organizations</a></li>
+                                <li><a href="#">Businesses</a></li>
+                            </ul>
+                        </li>
+            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Sign-up <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu list-group">
+                                <li><a href="/volunteer/register">Volunteers</a></li>
+                                <li><a href="/organization/register">Organizations</a></li>
+                                <li><a href="#">Businesses</a></li>
+                            </ul>
+                        </li>
             </ul>
+             
+
 
                 @if(Auth::guard('volunteer')->user())
                         <li class="dropdown">

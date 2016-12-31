@@ -51,7 +51,7 @@
 	<button id="AddPhoto" class="btn btn-success" type="submit">Add Photo!</button>
 
     <div class="container">
-      <form action="{{ route('OrgStorePhoto')}}" id="form1" method="post" enctype="multipart/form-data">
+      <form action="{{ route('VolStorePhoto')}}" id="form1" method="post" enctype="multipart/form-data">
         <fieldset>
         Select image to upload:
         {{-- CSRF Tolken --}}
@@ -73,6 +73,18 @@ Please briefly tell us what you personally enjoyed about this event!
       </fieldset>
       </form>
     </div>
+
+    <!-- Show Photos posted belonging organization for edition and deleating -->
+@forelse ($user->photo as $photo)
+    {{-- Show Image --}} 
+    <img src="{{ asset('volunteers\photos' . $photo->image)}}">
+    {{-- Edit Button --}}
+    <a class="btn btn-warning" href="{{ route ('VolEditPhoto', $photo->id ) }}">Edit</a>
+    {{-- Delete Method --}} 
+    <form action="{{ route('VolDeletePhoto', $photo->id) }}" method="POST" style="display: inline;" onsubmit="if(confirm('Delete? Are you sure?')) { return true } else {return false };"><input type="hidden" name="_method" value="DELETE"><input type="hidden" name="_token" value="{{ csrf_token() }}"> <button class="btn btn-danger" type="submit">Delete</button></form>
+    @empty
+    <p>No users</p>
+@endforelse
 
 	<!-- Badges -->
 	<div class="container">

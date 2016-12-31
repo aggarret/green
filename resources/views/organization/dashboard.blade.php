@@ -41,7 +41,7 @@ ul.auto-complete-list {
 <button id="AddPhoto" class="btn btn-success" type="submit">Add Photo!</button>
 
     <div class="container">
-      <form action="{{ route('OrgStorePhoto')}}" id="form1" method="post" enctype="multipart/form-data">
+      <form action="{{ route('OrgStorePhoto')}}" id="form1" method="post" enctype="multipart/form-data" hidden>
         <fieldset>
         Select image to upload:
         <input type="hidden" name="_token" value="{{ csrf_token() }}">

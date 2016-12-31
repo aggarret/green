@@ -34,16 +34,15 @@
 	    <!-- jquery 3.1.1-->
 		<script src="{{ URL::to('assets/jquery-3.1.1.min.js') }}"></script>
 		<script src="{{ URL::to('assets/js/bootstrap.min.js') }}"></script>
-<<<<<<< HEAD
 		
 		{{-- custom jquery code --}}
 		
 		 		@yield('script')
 		
-=======
+
 
 		<!-- custom jquery code-->
 		@yield('script')
->>>>>>> a09227f435cf76f92dd74b7364de539532291feb
+
 	</body>
 </html>

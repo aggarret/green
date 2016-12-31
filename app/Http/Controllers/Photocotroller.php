@@ -76,7 +76,9 @@ Log::info('test'.$photo->calendar_id);
                $location = public_path('volunteers\photos' . $filename);
                Image::make($file)->resize(200, 400)->save($location);
                $photo->image = $filename;
-               var_dump(($volunteer));
+                if ($photo->shared == 'TRUE') {
+                $photo->shared_image = $filename;
+                }
                
                // dd(is_object($volunteer));
                $volunteer->photo()->save($photo);
