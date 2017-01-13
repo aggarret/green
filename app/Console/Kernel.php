@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
         // Commands\Inspire::class,
          Commands\TrackHours::class,
          Commands\TrackLeaderBoard::class,
+         Commands\SendEmails::class,
     ];
 
     /**
